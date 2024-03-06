@@ -7,13 +7,21 @@
 </head>
 <body>
   <div class="container">
-    <h2 class="title">Unsere Partner</h2>
+    <h2 class="title">Saftpressen</h2>
     <div class="card-container">
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/angel.webp" alt="angel company logo" draggable="false">
+        </div>
+      </a>
       <a class="card-link" href="#" draggable="false">
         <div class="card">
           <img class="card-image" src="./img/kuvings.webp" alt="kuvings company logo" draggable="false">
         </div>
       </a>
+    </div>
+    <h2 class="title">Mixer &#38; Blender</h2>
+    <div class="card-container">
       <a class="card-link" href="#" draggable="false">
         <div class="card">
           <img class="card-image" src="./img/vitamix.webp" alt="vitamix company logo" draggable="false">
@@ -21,12 +29,63 @@
       </a>
       <a class="card-link" href="#" draggable="false">
         <div class="card">
-          <img class="card-image" style="filter: brightness(0);" src="./img/angel.webp" alt="angel company logo" draggable="false">
+          <img class="card-image" src="./img/kuvings.webp" alt="kuvings company logo" draggable="false">
         </div>
       </a>
       <a class="card-link" href="#" draggable="false">
         <div class="card">
           <img class="card-image" src="./img/blendtec.webp" alt="blendtec company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/vitaleo.webp" alt="vitaleo company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/tribest.webp" alt="tribest company logo" draggable="false">
+        </div>
+      </a>
+    </div>
+    <h2 class="title">Dörrgeräte</h2>
+    <div class="card-container">
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/tribest.webp" alt="tribest company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/counterintelligence.webp" alt="counter intelligence company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/brod-and-taylor.webp" alt="brod and taylor company logo" draggable="false">
+        </div>
+      </a>
+    </div>
+    <h2 class="title">Mühlen &#38; Flocker</h2>
+    <div class="card-container">
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/hawos.webp" alt="hawos company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/komo.webp" alt="komo company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/schnitzer.webp" alt="schnitzer company logo" draggable="false">
+        </div>
+      </a>
+      <a class="card-link" href="#" draggable="false">
+        <div class="card">
+          <img class="card-image" src="./img/elsaesser.webp" alt="eslässer company logo" draggable="false">
         </div>
       </a>
     </div>
@@ -38,7 +97,7 @@
 
   html,
   body {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     font-family: 'Inter';
     background-size: 30px 30px;
@@ -47,12 +106,16 @@
   .container {
     display: grid;
     place-content: center;
-    height: 100%;
+    min-height: 100%;
   }
   .card-container {
-    display: inline-grid;
-    place-content: center;
-    grid-auto-flow: column dense;
+    --width: 215px;
+    display: grid;
+    place-content: start;
+    min-width: var(--width);
+    max-width: calc(var(--width) * 5);
+    grid-template-columns: repeat(auto-fit, 202px);
+    grid-auto-rows: 202px;
     gap: 1rem;
   }
   .card-link:focus-visible {
@@ -69,8 +132,9 @@
   .title {
     font-size: 2rem;
     font-weight: bold;
+    text-decoration: underline;
     margin: 0;
-    padding: 1rem 0;
+    padding: 2rem 0 1rem 0;
   }
   .card {
     height: 200px;
@@ -116,22 +180,24 @@
     scale: .8;
     font-style: italic;
   }
-  @media (max-width: 890px) {
+
+  @media screen and (max-width: 450px) {
+    .container {
+      text-align: center;
+    }
     .card-container {
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-flow: unset;
+      place-content: center;
+    }
+    .title {
+      padding: 0;
     }
   }
-  @media (max-width: 670px) {
+  @media screen and (max-width: 850px) {
     .card-container {
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-flow: unset;
+      padding: 0 1rem;
     }
-  }
-  @media (max-width: 450px) {
-    .card-container {
-      grid-template-columns: repeat(1, 1fr);
-      grid-auto-flow: unset;
+    .title {
+      padding: 1rem 0 1rem 1rem;
     }
   }
 </style>
